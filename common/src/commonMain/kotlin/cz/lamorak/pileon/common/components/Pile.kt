@@ -1,9 +1,7 @@
-package widget
+package cz.lamorak.pileon.common.components
 
-import Card
 import Draggable
 import DraggedCards
-import GameProvider
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.aspectRatio
@@ -18,6 +16,7 @@ import androidx.compose.ui.layout.boundsInWindow
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
+import cz.lamorak.pileon.common.GameProvider
 
 @Composable
 fun Pile(pileIndex: Int) {

@@ -1,4 +1,9 @@
-import androidx.compose.desktop.ui.tooling.preview.Preview
+package cz.lamorak.pileon.common.components
+
+import Card
+import Rank
+import Suit
+//import androidx.compose.desktop.ui.tooling.preview.Preview
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.aspectRatio
@@ -29,10 +34,10 @@ fun Card(card: Card, index: Int) {
     }
 }
 
-@Preview
-@Composable
-fun CardPreview() {
-    Box() {
-        Card(Card(Rank.ACE, Suit.SPADES), 0)
-    }
-}
+//@Preview
+//@Composable
+//fun CardPreview() {
+//    Box {
+//        Card(Card(Rank.ACE, Suit.SPADES), 0)
+//    }
+//}

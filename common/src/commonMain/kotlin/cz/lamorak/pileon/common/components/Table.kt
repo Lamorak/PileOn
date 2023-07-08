@@ -1,22 +1,18 @@
-@file:OptIn(ExperimentalFoundationApi::class)
-
-package widget
+package cz.lamorak.pileon.common.components
 
 import Game
-import GameProvider
-import androidx.compose.desktop.ui.tooling.preview.Preview
-import androidx.compose.foundation.ExperimentalFoundationApi
+//import androidx.compose.desktop.ui.tooling.preview.Preview
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.GridCells.*
-import androidx.compose.foundation.lazy.LazyVerticalGrid
-import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.unit.dp
+import cz.lamorak.pileon.common.GameProvider
 
 @Composable
 fun Table() {
@@ -36,10 +32,10 @@ fun Table() {
             }
     ) {
         LazyVerticalGrid(
-            cells = Fixed(columns),
+            columns = GridCells.Fixed(columns),
             verticalArrangement = Arrangement.spacedBy(8.dp),
             horizontalArrangement = Arrangement.spacedBy(8.dp),
-            modifier = Modifier.align(Alignment.Center)
+            modifier = Modifier.align(Alignment.Center),
         ) {
             items(15) {
                 Pile(it)
@@ -48,12 +44,12 @@ fun Table() {
     }
 }
 
-@Preview
-@Composable
-fun TablePreview() {
-    CompositionLocalProvider(
-        GameProvider provides Game()
-    ) {
-        Table()
-    }
-}
+//@Preview
+//@Composable
+//fun TablePreview() {
+//    CompositionLocalProvider(
+//        GameProvider provides Game()
+//    ) {
+//        Table()
+//    }
+//}
