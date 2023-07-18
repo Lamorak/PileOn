@@ -1,11 +1,8 @@
 package cz.lamorak.pileon.common.components
 
-import Card
-import Rank
-import Suit
+import cz.lamorak.pileon.common.Card
 //import androidx.compose.desktop.ui.tooling.preview.Preview
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape

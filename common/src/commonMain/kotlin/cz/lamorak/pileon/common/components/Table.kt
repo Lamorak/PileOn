@@ -1,6 +1,5 @@
 package cz.lamorak.pileon.common.components
 
-import Game
 //import androidx.compose.desktop.ui.tooling.preview.Preview
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -12,7 +11,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.unit.dp
-import cz.lamorak.pileon.common.GameProvider
 
 @Composable
 fun Table() {

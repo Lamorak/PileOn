@@ -1,9 +1,10 @@
+package cz.lamorak.pileon.common
+
 import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.layout.Box
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.input.pointer.consumeAllChanges
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.layout.onSizeChanged
@@ -41,7 +42,7 @@ fun Draggable(
     var currentPosition by remember { mutableStateOf(Offset.Zero) }
     var currentSize by remember { mutableStateOf(DpSize.Zero) }
     val dragState = DraggedCards.current
-    val denstity = LocalDensity.current
+    val density = LocalDensity.current
 
     Box(
         modifier
@@ -49,7 +50,7 @@ fun Draggable(
                 currentPosition = it.localToWindow(Offset.Zero)
             }
             .onSizeChanged {
-                denstity.run {
+                density.run {
                     currentSize = DpSize(it.width.toDp(), it.height.toDp())
                 }
             }
@@ -68,7 +69,7 @@ fun Draggable(
                     },
                     onDragCancel = { dragState.reset() },
                     onDrag = { change, dragAmount ->
-                        change.consumeAllChanges()
+                        change.consume()
                         dragState.dragOffset += dragAmount
                     }
                 )

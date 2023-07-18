@@ -13,27 +13,18 @@ out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 
-### Eclipse ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-bin/
-!**/src/main/**/bin/
-!**/src/test/**/bin/
-
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
+### iOS
+ios/Podfile.lock
+ios/Pods/*
+ios/ios.xcworkspace/*
+ios/ios.xcodeproj/*
+!ios/ios.xcodeproj/project.pbxproj
+shared/shared.podspec
 
 ### VS Code ###
 .vscode/
 
 ### Mac OS ###
 .DS_Store
+
+local.properties

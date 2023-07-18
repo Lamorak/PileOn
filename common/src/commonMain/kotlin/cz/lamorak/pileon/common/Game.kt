@@ -1,3 +1,5 @@
+package cz.lamorak.pileon.common
+
 import androidx.compose.runtime.*
 
 class Game {

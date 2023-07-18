@@ -1,9 +1,6 @@
 package cz.lamorak.pileon.common
 
 import cz.lamorak.pileon.common.components.Card
-import DragInfo
-import DraggedCards
-import Game
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.MaterialTheme

@@ -1,51 +1,59 @@
-import org.jetbrains.compose.compose
-
 plugins {
     kotlin("multiplatform")
-    id("org.jetbrains.compose")
+    kotlin("native.cocoapods")
     id("com.android.library")
+    id("org.jetbrains.compose")
 }
-
-group = "cz.lamorak.pileon"
-version = "1.0-SNAPSHOT"
 
 kotlin {
     android()
-    jvm("desktop") {
-        jvmToolchain(11)
+    iosX64()
+    iosArm64()
+    iosSimulatorArm64()
+    jvm("desktop")
+
+    cocoapods {
+        version = "1.0.0"
+        summary = "Some description for the Shared Module"
+        homepage = "Link to the Shared Module homepage"
+        ios.deploymentTarget = "14.1"
+        podfile = project.file("../ios/Podfile")
+        framework {
+            baseName = "common"
+            isStatic = true
+        }
+        extraSpecAttributes["resources"] = "['src/commonMain/resources/**', 'src/ios/resources/**']"
     }
+
     sourceSets {
         val commonMain by getting {
             dependencies {
-                api(compose.runtime)
-                api(compose.foundation)
-                api(compose.material)
-//                api("androidx.compose.ui:ui-tooling-preview:1.4.3")
-//                debugImpementation("androidx.compose.ui:ui-tooling:1.4.3")
-            }
-        }
-        val commonTest by getting {
-            dependencies {
-                implementation(kotlin("test"))
+                implementation(compose.runtime)
+                implementation(compose.foundation)
+                implementation(compose.material)
             }
         }
         val androidMain by getting {
             dependencies {
+                api("androidx.activity:activity-compose:1.7.2")
                 api("androidx.appcompat:appcompat:1.6.1")
                 api("androidx.core:core-ktx:1.10.1")
             }
         }
-//        val androidTest by getting {
-//            dependencies {
-//                implementation("junit:junit:4.13.2")
-//            }
-//        }
+        val iosX64Main by getting
+        val iosArm64Main by getting
+        val iosSimulatorArm64Main by getting
+        val iosMain by creating {
+            dependsOn(commonMain)
+            iosX64Main.dependsOn(this)
+            iosArm64Main.dependsOn(this)
+            iosSimulatorArm64Main.dependsOn(this)
+        }
         val desktopMain by getting {
             dependencies {
                 api(compose.preview)
             }
         }
-        val desktopTest by getting
     }
 }
 
@@ -54,10 +62,12 @@ android {
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     defaultConfig {
         minSdk = 24
-//        targetSdk = 33
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
+    kotlin {
+        jvmToolchain(11)
     }
 }

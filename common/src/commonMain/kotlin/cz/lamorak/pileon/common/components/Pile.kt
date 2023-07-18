@@ -1,7 +1,7 @@
 package cz.lamorak.pileon.common.components
 
-import Draggable
-import DraggedCards
+import cz.lamorak.pileon.common.Draggable
+import cz.lamorak.pileon.common.DraggedCards
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.aspectRatio

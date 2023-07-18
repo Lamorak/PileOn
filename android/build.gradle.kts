@@ -1,15 +1,11 @@
 plugins {
-    id("org.jetbrains.compose")
-    id("com.android.application")
     kotlin("android")
+    id("com.android.application")
+    id("org.jetbrains.compose")
 }
-
-group = "cz.lamorak.pileon"
-version = "1.0-SNAPSHOT"
 
 dependencies {
     implementation(project(":common"))
-    implementation("androidx.activity:activity-compose:1.7.2")
 }
 
 android {
@@ -22,12 +18,10 @@ android {
         versionName = "1.0-SNAPSHOT"
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
-    buildTypes {
-        getByName("release") {
-            isMinifyEnabled = false
-        }
+    kotlin {
+        jvmToolchain(11)
     }
 }

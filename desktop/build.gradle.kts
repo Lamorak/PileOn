@@ -5,10 +5,6 @@ plugins {
     id("org.jetbrains.compose")
 }
 
-group = "cz.lamorak.pileon"
-version = "1.0-SNAPSHOT"
-
-
 kotlin {
     jvm {
         jvmToolchain(11)
